@@ -22,7 +22,8 @@ const weatherImage = {
   "Moderate or heavy freezing rain": require('../assets/images/meteo/heavyrain.png'),
   "Moderate or heavy rain shower": require("../assets/images/meteo/heavyrain.png"),
   "Moderate or heavy rain with thunder": require('../assets/images/meteo/heavyrain.png'),
-  "other": require('../assets/images/meteo/moderaterain.png')
+  "Moderate snow" : require("../assets/images/meteo/snowfall.png"),
+  "other": require('../assets/images/meteo/sun.png')
 
 }
 
@@ -160,7 +161,7 @@ const HomePage = () => {
 
                 <View className='flex-row justify-center '>
                   <Image source={weatherImage[current?.condition?.text] || weatherImage["other"]}
-                    className='w-56 h-56'
+                    className='w-44 h-44'
                   />
                 </View>
 
@@ -213,8 +214,6 @@ const HomePage = () => {
                       let dayName = date.toLocaleDateString('en-US', options)
 
                       return (
-
-
                         <View
                           key={index}
                           className="justify-center flex items-center w-24 rounded-3xl py-4   space-y-1 mr-8"
@@ -246,7 +245,7 @@ const HomePage = () => {
                     forecast?.forecastday?.map((day, index) => {
 
                       return (
-                        <ScrollView
+                        <ScrollView 
                           key={index} horizontal contentContainerStyle={{ paddingHorizontal: 16 }}
                           showsHorizontalScrollIndicator={false}
                         >
@@ -260,7 +259,7 @@ const HomePage = () => {
                               let dayName = day.toLocaleDateString('en-US', options)
 
                               return (
-                                <View key={i} className='justify-center flex  items-center w-24 rounded-3xl py-3 space-y-1 mr-8'
+                                <View key={i} className='justify-center flex  items-center w-24 rounded-3xl pl-2 pr-2RR space-y-1 mr-8'
                                   style={{ backgroundColor: "rgba(255,255,255,0.15)" }}>
                                   <Image source={weatherImage[hour?.condition?.text] || weatherImage["other"]}
                                     className='w-11 h-11'
